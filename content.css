@@ -1,0 +1,80 @@
+/* 电商图片提取下载插件 - 悬浮按钮样式 */
+
+.ecc-float-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2147483647; /* 最高层级，避免被页面遮挡 */
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%);
+  border: none;
+  border-radius: 28px;
+  box-shadow: 0 6px 18px rgba(238, 9, 121, 0.45), 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  letter-spacing: 1px;
+}
+
+.ecc-float-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 10px 24px rgba(238, 9, 121, 0.55), 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.ecc-float-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.ecc-float-btn.ecc-loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.ecc-float-btn.ecc-loading::after {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  vertical-align: middle;
+  animation: ecc-spin 0.8s linear infinite;
+}
+
+@keyframes ecc-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 提取完成的轻提示 */
+.ecc-toast {
+  position: fixed;
+  right: 24px;
+  bottom: 80px;
+  z-index: 2147483647;
+  padding: 10px 18px;
+  font-size: 13px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.78);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+}
+
+.ecc-toast.ecc-show {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "电商图片提取下载插件",
+  "version": "1.0.0",
+  "description": "在淘宝、京东、拼多多商家版商品详情页一键提取并下载商品图片（PNG 格式）",
+  "permissions": ["activeTab", "scripting", "downloads", "storage"],
+  "host_permissions": [
+    "*://*.taobao.com/*",
+    "*://*.tmall.com/*",
+    "*://*.alicdn.com/*",
+    "*://*.jd.com/*",
+    "*://*.360buyimg.com/*",
+    "*://*.pinduoduo.com/*",
+    "*://*.yangkeduo.com/*",
+    "*://*.pddpic.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.taobao.com/*",
+        "*://*.tmall.com/*",
+        "*://*.jd.com/*",
+        "*://*.pinduoduo.com/*",
+        "*://*.yangkeduo.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "电商图片提取下载插件"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["gallery.html", "gallery.js", "gallery.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

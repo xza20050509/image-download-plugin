@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>商品图片提取 - 下载中心</title>
+  <link rel="stylesheet" href="gallery.css" />
+</head>
+<body>
+  <!-- 顶部工具栏 -->
+  <header class="toolbar">
+    <div class="toolbar-left">
+      <h1 class="title">商品图片提取</h1>
+      <span id="total-count" class="count-badge">共 0 张</span>
+    </div>
+    <div class="toolbar-right">
+      <button id="btn-select-all" class="btn btn-ghost">全选</button>
+      <button id="btn-invert" class="btn btn-ghost">反选</button>
+      <span id="selected-count" class="selected-badge">已选 0 张</span>
+      <button id="btn-download" class="btn btn-primary" disabled>下载选中</button>
+    </div>
+  </header>
+
+  <!-- 进度条（下载时显示） -->
+  <div id="progress-bar" class="progress-wrap hidden">
+    <div class="progress-inner">
+      <div id="progress-fill" class="progress-fill"></div>
+    </div>
+    <div id="progress-text" class="progress-text">准备下载…</div>
+  </div>
+
+  <!-- 图片网格 -->
+  <main id="gallery" class="gallery">
+    <div class="empty-tip">正在加载图片…</div>
+  </main>
+
+  <!-- 结果提示 -->
+  <div id="result-toast" class="result-toast hidden"></div>
+
+  <script src="gallery.js"></script>
+</body>
+</html>
